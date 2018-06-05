@@ -20,7 +20,6 @@ public class MainScript : MonoBehaviour {
     {
         if (isGameOver)
         {
-            isGameOver = false;
             OnGameOver();
         }
     }
