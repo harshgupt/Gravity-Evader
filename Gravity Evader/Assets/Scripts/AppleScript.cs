@@ -8,7 +8,7 @@ public class AppleScript : MonoBehaviour {
     
 	void Start ()
     {
-        speed = 0.02f + ((float)(ScoreScript.score / 50) * (0.02f));
+        speed = 0.02f + ((ScoreScript.score / 50) * (0.02f));
     }
 	
 	void Update ()

@@ -8,7 +8,7 @@ public class GoldenAppleScript : MonoBehaviour {
     
 	void Start ()
     {
-        speed = 0.05f + ((float)(ScoreScript.score / 50) * (0.01f));
+        speed = 0.05f + ((ScoreScript.score / 50f) * (0.01f));
     }
 	
 	void Update ()

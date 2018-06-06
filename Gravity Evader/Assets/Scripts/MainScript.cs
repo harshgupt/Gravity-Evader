@@ -9,7 +9,8 @@ public class MainScript : MonoBehaviour {
     public static int highscore;
     public static bool isGameOver;
     public Animator scoreAnimator;
-    public AnimationClip displayScore;
+    public Animator bgAnimator;
+    public Animator characterAnimator;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class MainScript : MonoBehaviour {
         SilverAppleScript.speed = 0;
         GoldenAppleScript.speed = 0;
         mainObject.GetComponent<AppleSpawner>().enabled = false;
-        scoreAnimator.Play("displayScore");
+        scoreAnimator.SetTrigger("GameOver");
+        bgAnimator.SetTrigger("GameOver");
     }
 }

@@ -7,21 +7,47 @@ public class AppleSpawner : MonoBehaviour {
     public Transform apple;
     public Transform silverApple;
     public Transform goldenApple;
+    public float appleSpawnTime;
+    public float silverAppleSpawnTime;
+    public float goldenAppleSpawnTime;
+    public float timerApple;
+    public float timerSilverApple;
+    public float timerGoldenApple;
 
 	void Start ()
     {
-        InvokeRepeating("SpawnApple", 1f, 2.1f);
-        InvokeRepeating("SpawnSilverApple", 10f, 15.1f);
-        InvokeRepeating("SpawnGoldenApple", 30f, 35.1f);
+        appleSpawnTime = 2f;
+        silverAppleSpawnTime = 15f;
+        goldenAppleSpawnTime = 35f;
+        //InvokeRepeating("SpawnApple", 1f, appleSpawnTime);
+        //InvokeRepeating("SpawnSilverApple", 10f, silverAppleSpawnTime);
+        //InvokeRepeating("SpawnGoldenApple", 30f, goldenAppleSpawnTime);
     }
 
     private void Update()
     {
-        if (MainScript.isGameOver)
+        //Change spawn times based on score
+        appleSpawnTime = 2f / (1 + (int)(ScoreScript.score / 50f));
+        silverAppleSpawnTime = 15f / (1 + (int)(ScoreScript.score / 100f));
+        goldenAppleSpawnTime = 30f / (1 + (int)(ScoreScript.score / 200f));
+        //Timers to spawn apples repeatedly
+        timerApple += Time.deltaTime;
+        timerSilverApple += Time.deltaTime;
+        timerGoldenApple += Time.deltaTime;
+        if (timerApple >= appleSpawnTime)
         {
-            CancelInvoke("SpawnApple");
-            CancelInvoke("SpawnSilverApple");
-            CancelInvoke("SpawnGoldenApple");
+            timerApple = 0;
+            SpawnApple();
+        }
+        if (timerSilverApple >= silverAppleSpawnTime)
+        {
+            timerSilverApple = 0;
+            SpawnSilverApple();
+        }
+        if (timerGoldenApple >= goldenAppleSpawnTime)
+        {
+            timerGoldenApple = 0;
+            SpawnGoldenApple();
         }
     }
 
