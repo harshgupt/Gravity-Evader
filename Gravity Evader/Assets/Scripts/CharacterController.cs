@@ -41,6 +41,7 @@ public class CharacterController : MonoBehaviour {
             speed = 0;
             MainScript.isGameOver = true;
             collision.gameObject.transform.parent = transform;
+            collision.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
         }
         else if (collision.gameObject.tag == "Silver Apple")
         {

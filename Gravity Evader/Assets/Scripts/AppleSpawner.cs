@@ -27,9 +27,9 @@ public class AppleSpawner : MonoBehaviour {
     private void Update()
     {
         //Change spawn times based on score
-        appleSpawnTime = 2f / (1 + (int)(ScoreScript.score / 50f));
-        silverAppleSpawnTime = 15f / (1 + (int)(ScoreScript.score / 100f));
-        goldenAppleSpawnTime = 30f / (1 + (int)(ScoreScript.score / 200f));
+        appleSpawnTime = 2f / (1 + (int)(ScoreScript.score / 25f));
+        silverAppleSpawnTime = 15f / (1 + (int)(ScoreScript.score / 50f));
+        goldenAppleSpawnTime = 30f / (1 + (int)(ScoreScript.score / 100f));
         //Timers to spawn apples repeatedly
         timerApple += Time.deltaTime;
         timerSilverApple += Time.deltaTime;
@@ -56,7 +56,7 @@ public class AppleSpawner : MonoBehaviour {
         if (!MainScript.isGameOver)
         {
             float randX = Random.Range(-2.5f, 2.5f);
-            Vector3 position = new Vector3(randX, 5.5f);
+            Vector3 position = new Vector3(0f, 5.5f);
             Instantiate(apple, position, Quaternion.identity);
         }
     }
