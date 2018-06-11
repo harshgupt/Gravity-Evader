@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 793354851}
   - component: {fileID: 793354850}
   - component: {fileID: 793354849}
+  - component: {fileID: 793354852}
   m_Layer: 5
   m_Name: PlayAgainButton
   m_TagString: Untagged
@@ -624,6 +625,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 793354847}
+--- !u!95 &793354852
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793354847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e16efbd99a07ecc4aaf645dd91db7e02, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &824342437
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +654,7 @@ GameObject:
   - component: {fileID: 824342441}
   - component: {fileID: 824342440}
   - component: {fileID: 824342439}
+  - component: {fileID: 824342442}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -745,6 +765,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 824342437}
+--- !u!95 &824342442
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 824342437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a5c4fba40a1af34494be26f31853d67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &891682249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,7 +1494,7 @@ MonoBehaviour:
   scoreAnimator: {fileID: 1831313087}
   bgAnimator: {fileID: 1966671289}
   playButtonAnimator: {fileID: 0}
-  playAgainButtonAnimator: {fileID: 0}
+  playAgainButtonAnimator: {fileID: 793354852}
   highscoreButtonAnimator: {fileID: 0}
 --- !u!1 &1608586502
 GameObject:
@@ -1729,6 +1767,7 @@ GameObject:
   - component: {fileID: 1991716457}
   - component: {fileID: 1991716456}
   - component: {fileID: 1991716455}
+  - component: {fileID: 1991716458}
   m_Layer: 5
   m_Name: HighscoreButton
   m_TagString: Untagged
@@ -1839,6 +1878,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1991716453}
+--- !u!95 &1991716458
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991716453}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 682439f298f6f96419becd333bfee6f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1999347205
 GameObject:
   m_ObjectHideFlags: 0

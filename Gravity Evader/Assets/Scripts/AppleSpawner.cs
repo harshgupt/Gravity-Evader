@@ -19,9 +19,6 @@ public class AppleSpawner : MonoBehaviour {
         appleSpawnTime = 2f;
         silverAppleSpawnTime = 15f;
         goldenAppleSpawnTime = 35f;
-        //InvokeRepeating("SpawnApple", 1f, appleSpawnTime);
-        //InvokeRepeating("SpawnSilverApple", 10f, silverAppleSpawnTime);
-        //InvokeRepeating("SpawnGoldenApple", 30f, goldenAppleSpawnTime);
     }
 
     private void Update()
@@ -56,7 +53,7 @@ public class AppleSpawner : MonoBehaviour {
         if (!MainScript.isGameOver)
         {
             float randX = Random.Range(-2.5f, 2.5f);
-            Vector3 position = new Vector3(0f, 5.5f);
+            Vector3 position = new Vector3(randX, 5.5f);
             Instantiate(apple, position, Quaternion.identity);
         }
     }

@@ -57,6 +57,7 @@ public class MainScript : MonoBehaviour {
         bgAnimator.SetTrigger("GameOver");
         playAgainButton.SetActive(true);
         highscoreButton.SetActive(true);
+        playAgainButtonAnimator.SetTrigger("GameOver");
     }
 
     public void OnPlayAgain()
@@ -71,6 +72,6 @@ public class MainScript : MonoBehaviour {
         highscoreButton.SetActive(false);
         scoreValue.SetActive(false);
         playAgainButton.SetActive(true);
-        playAgainButtonAnimator.SetTrigger("HighscoreClick");
+        playAgainButtonAnimator.SetTrigger("OnHighscoreClick");
     }
 }

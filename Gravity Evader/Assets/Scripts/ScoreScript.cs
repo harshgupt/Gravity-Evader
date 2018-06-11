@@ -16,9 +16,20 @@ public class ScoreScript : MonoBehaviour {
     private void Awake()
     {
         score = 0;
+    }
 
-        #region Highscores Initialization
-        hs1.text = "0";
+    private void Update()
+    {
+        scoreObject.text = score.ToString();
+        if (MainScript.isGameOver)
+        {
+            CheckAndSort();
+        }
+
+    }
+
+    public void HighscoreInit()
+    {
         if (PlayerPrefs.HasKey("HS5"))
         {
             hs5.text = PlayerPrefs.GetInt("HS5").ToString();
@@ -69,11 +80,22 @@ public class ScoreScript : MonoBehaviour {
             hs4.text = "0";
             hs5.text = "0";
         }
-        #endregion
     }
 
-    private void Update()
+    public void CheckAndSort()
     {
-        scoreObject.text = score.ToString();
+        int pPrefScore;
+        int currScore = score;
+        for(int i = 1; i <=5; i++)
+        {
+            string hsNum = "HS" + i;
+            pPrefScore = PlayerPrefs.GetInt(hsNum);
+            if (currScore > pPrefScore)
+            {
+                PlayerPrefs.SetInt(hsNum, currScore);
+                currScore = pPrefScore;
+            }
+        }
+        HighscoreInit();
     }
 }
