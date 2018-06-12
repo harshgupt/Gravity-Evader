@@ -5,6 +5,7 @@ using UnityEngine;
 public class AppleScript : MonoBehaviour {
 
     public static float speed;
+    public static bool playAudio = false;
     
 	void Start ()
     {
@@ -23,6 +24,7 @@ public class AppleScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Ground")
         {
+            playAudio = true;
             Destroy(this.gameObject);
             ScoreScript.score += 1;
         }

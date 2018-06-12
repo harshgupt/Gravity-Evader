@@ -19,6 +19,8 @@ public class MainScript : MonoBehaviour {
     public Animator playButtonAnimator;
     public Animator playAgainButtonAnimator;
     public Animator highscoreButtonAnimator;
+    public AudioSource audioSource;
+    public AudioClip buttonPress;
 
     private void Start()
     {
@@ -41,6 +43,7 @@ public class MainScript : MonoBehaviour {
 
     public void OnGameStart()
     {
+        audioSource.PlayOneShot(buttonPress);
         mainUI.SetActive(false);
         title.SetActive(false);
         playButton.SetActive(false);
@@ -68,6 +71,7 @@ public class MainScript : MonoBehaviour {
 
     public void OnHighscoreClick()
     {
+        audioSource.PlayOneShot(buttonPress);
         mainUI.SetActive(true);
         highscoreScreen.SetActive(true);
         highscoreButton.SetActive(false);

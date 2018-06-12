@@ -6,8 +6,13 @@ public class CharacterController : MonoBehaviour {
 
     public GameObject player;
     public static float speed = 0f;
-    
-	void Update ()
+    public AudioSource audioSource;
+    public AudioClip appleHit;
+    public AudioClip goldCollect;
+    public AudioClip silverCollect;
+    public AudioClip appleSplat;
+
+    void Update ()
     {
 		if(Input.touchCount > 0)
         {
@@ -32,13 +37,19 @@ public class CharacterController : MonoBehaviour {
                 }
             }
         }
-	}
+        if (AppleScript.playAudio)
+        {
+            AppleScript.playAudio = false;
+            audioSource.PlayOneShot(appleSplat);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Apple")
         {
             speed = 0;
+            audioSource.PlayOneShot(appleHit);
             MainScript.isGameOver = true;
             collision.gameObject.transform.parent = transform;
             collision.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
@@ -46,11 +57,13 @@ public class CharacterController : MonoBehaviour {
         else if (collision.gameObject.tag == "Silver Apple")
         {
             Destroy(collision.gameObject);
+            audioSource.PlayOneShot(silverCollect);
             OnSilverApple();
         }
         else if(collision.gameObject.tag == "Golden Apple")
         {
             Destroy(collision.gameObject);
+            audioSource.PlayOneShot(goldCollect);
             OnGoldenApple();
         }
     }
