@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class AppleScript : MonoBehaviour {
 
+    public static float speedLimit;
     public static float speed;
     public static bool playAudio = false;
     
 	void Start ()
     {
-        speed = 0.02f + ((ScoreScript.score / 25) * (0.02f));
+        speedLimit = 0.02f + ((ScoreScript.score / 25) * (0.02f));
+        speed = Random.Range(0.02f, speedLimit);
     }
 	
 	void Update ()

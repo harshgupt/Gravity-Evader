@@ -19,7 +19,7 @@ public class AppleSpawner : MonoBehaviour {
         //Change spawn times based on score
         appleSpawnTime = 2f / (1 + (int)(ScoreScript.score / 25f));
         silverAppleSpawnTime = 15f / (1 + (int)(ScoreScript.score / 50f));
-        goldenAppleSpawnTime = 30f / (1 + (int)(ScoreScript.score / 100f));
+        goldenAppleSpawnTime = 25f / (1 + (int)(ScoreScript.score / 100f));
         //Timers to spawn apples repeatedly
         timerApple += Time.deltaTime;
         timerSilverApple += Time.deltaTime;
