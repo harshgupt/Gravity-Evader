@@ -51,8 +51,10 @@ public class CharacterController : MonoBehaviour {
             speed = 0;
             audioSource.PlayOneShot(appleHit);
             MainScript.isGameOver = true;
-            collision.gameObject.transform.parent = transform;
+            //collision.gameObject.transform.parent = transform;
             collision.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+            collision.tag = "Untagged";
+            
         }
         else if (collision.gameObject.tag == "Silver Apple")
         {

@@ -53,9 +53,21 @@ public class MainScript : MonoBehaviour {
 
     public void OnGameOver()
     {
-        AppleScript.speed = 0;
-        SilverAppleScript.speed = 0;
-        GoldenAppleScript.speed = 0;
+        GameObject[] apples = GameObject.FindGameObjectsWithTag("Apple");
+        foreach(GameObject apple in apples)
+        {
+            Destroy(apple);
+        }
+        GameObject[] silverApples = GameObject.FindGameObjectsWithTag("Silver Apple");
+        foreach (GameObject apple in silverApples)
+        {
+            Destroy(apple);
+        }
+        GameObject[] goldApples = GameObject.FindGameObjectsWithTag("Golden Apple");
+        foreach (GameObject apple in goldApples)
+        {
+            Destroy(apple);
+        }
         mainObject.GetComponent<AppleSpawner>().enabled = false;
         scoreAnimator.SetTrigger("GameOver");
         bgAnimator.SetTrigger("GameOver");

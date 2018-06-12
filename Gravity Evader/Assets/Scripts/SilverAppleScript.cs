@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SilverAppleScript : MonoBehaviour {
 
-    public static float speed;
+    public float speed;
 
     void Start()
     {
