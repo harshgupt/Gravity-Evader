@@ -45,6 +45,7 @@ public class MainScript : MonoBehaviour {
         title.SetActive(false);
         playButton.SetActive(false);
         mainObject.GetComponent<AppleSpawner>().enabled = true;
+        CharacterController.speed = 10.0f;
     }
 
     public void OnGameOver()

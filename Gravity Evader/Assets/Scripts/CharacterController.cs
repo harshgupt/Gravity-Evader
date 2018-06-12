@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour {
 
     public GameObject player;
-    public static float speed = 10.0f;
+    public static float speed = 0f;
     
 	void Update ()
     {
