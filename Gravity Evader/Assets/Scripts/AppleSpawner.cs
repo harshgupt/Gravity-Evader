@@ -14,13 +14,6 @@ public class AppleSpawner : MonoBehaviour {
     public float timerSilverApple;
     public float timerGoldenApple;
 
-	void Start ()
-    {
-        appleSpawnTime = 2f;
-        silverAppleSpawnTime = 15f;
-        goldenAppleSpawnTime = 35f;
-    }
-
     private void Update()
     {
         //Change spawn times based on score
