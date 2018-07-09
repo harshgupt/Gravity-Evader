@@ -23,18 +23,41 @@ public class CharacterController : MonoBehaviour {
                 touchedPos.y = -4f;
                 if(touchedPos.x >= -2.8f && touchedPos.x <= 2.8f)
                 {
-                    transform.position = Vector3.Lerp(transform.position, touchedPos, Time.deltaTime * speed);
+                    //transform.position = Vector3.Lerp(transform.position, touchedPos, Time.deltaTime * speed);
+                    transform.position = touchedPos;
                 }
                 else if(touchedPos.x < -2.8f)
                 {
                     Vector3 leftLimit = new Vector3(-2.8f, -4f, 0);
-                    transform.position = Vector3.Lerp(transform.position, leftLimit, Time.deltaTime * speed);
+                    //transform.position = Vector3.Lerp(transform.position, leftLimit, Time.deltaTime * speed);
+                    transform.position = leftLimit;
                 }
                 else if(touchedPos.x > 2.8f)
                 {
                     Vector3 rightLimit = new Vector3(2.8f, -4f, 0);
-                    transform.position = Vector3.Lerp(transform.position, rightLimit, Time.deltaTime * speed);
+                    //transform.position = Vector3.Lerp(transform.position, rightLimit, Time.deltaTime * speed);
+                    transform.position = rightLimit;
                 }
+            }
+        }
+        else
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 0, 10));
+            mousePos.y = -4f;
+            transform.position = mousePos;
+            if (mousePos.x >= -2.8f && mousePos.x <= 2.8f)
+            {
+                transform.position = mousePos;
+            }
+            else if (mousePos.x < -2.8f)
+            {
+                Vector3 leftLimit = new Vector3(-2.8f, -4f, 0);
+                transform.position = leftLimit;
+            }
+            else if (mousePos.x > 2.8f)
+            {
+                Vector3 rightLimit = new Vector3(2.8f, -4f, 0);
+                transform.position = rightLimit;
             }
         }
         if (AppleScript.playAudio)
@@ -42,6 +65,12 @@ public class CharacterController : MonoBehaviour {
             AppleScript.playAudio = false;
             audioSource.PlayOneShot(appleSplat);
         }
+    }
+
+    public void OnMouseDrag()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+        transform.position = mousePos;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

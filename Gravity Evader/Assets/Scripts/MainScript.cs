@@ -9,6 +9,8 @@ public class MainScript : MonoBehaviour {
     public GameObject mainUI;
     public GameObject title;
     public GameObject playButton;
+    public GameObject quitButton;
+    public GameObject homeButton;
     public GameObject playAgainButton;
     public GameObject highscoreButton;
     public GameObject highscoreScreen;
@@ -27,6 +29,8 @@ public class MainScript : MonoBehaviour {
         mainUI.SetActive(true);
         title.SetActive(true);
         playButton.SetActive(true);
+        quitButton.SetActive(true);
+        homeButton.SetActive(false);
         playAgainButton.SetActive(false);
         highscoreButton.SetActive(false);
         mainObject.GetComponent<AppleSpawner>().enabled = false;
@@ -47,6 +51,8 @@ public class MainScript : MonoBehaviour {
         mainUI.SetActive(false);
         title.SetActive(false);
         playButton.SetActive(false);
+        quitButton.SetActive(false);
+        homeButton.SetActive(true);
         mainObject.GetComponent<AppleSpawner>().enabled = true;
         CharacterController.speed = 10.0f;
     }
@@ -73,6 +79,7 @@ public class MainScript : MonoBehaviour {
         bgAnimator.SetTrigger("GameOver");
         playAgainButton.SetActive(true);
         highscoreButton.SetActive(true);
+        homeButton.SetActive(false);
         playAgainButtonAnimator.SetTrigger("GameOver");
     }
 
@@ -90,5 +97,10 @@ public class MainScript : MonoBehaviour {
         scoreValue.SetActive(false);
         playAgainButton.SetActive(true);
         playAgainButtonAnimator.SetTrigger("OnHighscoreClick");
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
     }
 }
