@@ -9,6 +9,8 @@ public class MainScript : MonoBehaviour {
     public GameObject mainUI;
     public GameObject title;
     public GameObject playButton;
+    public GameObject tutorialButton;
+    public GameObject tutorialImage;
     public GameObject quitButton;
     public GameObject homeButton;
     public GameObject playAgainButton;
@@ -29,6 +31,8 @@ public class MainScript : MonoBehaviour {
         mainUI.SetActive(true);
         title.SetActive(true);
         playButton.SetActive(true);
+        tutorialButton.SetActive(true);
+        tutorialImage.SetActive(false);
         quitButton.SetActive(true);
         homeButton.SetActive(false);
         playAgainButton.SetActive(false);
@@ -51,10 +55,21 @@ public class MainScript : MonoBehaviour {
         mainUI.SetActive(false);
         title.SetActive(false);
         playButton.SetActive(false);
+        tutorialButton.SetActive(false);
+        tutorialImage.SetActive(false);
         quitButton.SetActive(false);
         homeButton.SetActive(true);
         mainObject.GetComponent<AppleSpawner>().enabled = true;
         CharacterController.speed = 10.0f;
+    }
+
+    public void OnTutorial()
+    {
+        title.SetActive(false);
+        playButtonAnimator.SetTrigger("isTutorial");
+        tutorialButton.SetActive(false);
+        tutorialImage.SetActive(true);
+        quitButton.SetActive(false);
     }
 
     public void OnGameOver()
