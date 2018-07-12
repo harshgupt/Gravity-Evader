@@ -60,7 +60,7 @@ public class MainScript : MonoBehaviour {
         quitButton.SetActive(false);
         homeButton.SetActive(true);
         mainObject.GetComponent<AppleSpawner>().enabled = true;
-        CharacterController.speed = 10.0f;
+        CharacterController.speed = 100.0f;
     }
 
     public void OnTutorial()
